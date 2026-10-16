@@ -1,0 +1,390 @@
+{
+  "schemaVersion": 1,
+  "name": "The jam",
+  "titleKey": "level.the_jam.title",
+  "introKey": "level.the_jam.intro",
+  "budget": 1500,
+  "camera": {
+    "x": 0,
+    "y": 0,
+    "halfHeight": 230
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 2,
+      "x": 0,
+      "y": 70
+    },
+    {
+      "id": 3,
+      "x": -15,
+      "y": 70
+    },
+    {
+      "id": 4,
+      "x": 0,
+      "y": 110
+    },
+    {
+      "id": 5,
+      "x": 15,
+      "y": 110
+    },
+    {
+      "id": 6,
+      "x": 0,
+      "y": 160
+    },
+    {
+      "id": 7,
+      "x": 0,
+      "y": 175
+    },
+    {
+      "id": 8,
+      "x": 70,
+      "y": 0
+    },
+    {
+      "id": 9,
+      "x": 70,
+      "y": 15
+    },
+    {
+      "id": 10,
+      "x": 110,
+      "y": 0
+    },
+    {
+      "id": 11,
+      "x": 110,
+      "y": -15
+    },
+    {
+      "id": 12,
+      "x": 160,
+      "y": 0
+    },
+    {
+      "id": 13,
+      "x": 175,
+      "y": 0
+    },
+    {
+      "id": 14,
+      "x": 0,
+      "y": -70
+    },
+    {
+      "id": 15,
+      "x": 15,
+      "y": -70
+    },
+    {
+      "id": 16,
+      "x": 0,
+      "y": -110
+    },
+    {
+      "id": 17,
+      "x": -15,
+      "y": -110
+    },
+    {
+      "id": 18,
+      "x": 0,
+      "y": -160
+    },
+    {
+      "id": 19,
+      "x": 0,
+      "y": -175
+    },
+    {
+      "id": 20,
+      "x": -70,
+      "y": 0
+    },
+    {
+      "id": 21,
+      "x": -70,
+      "y": -15
+    },
+    {
+      "id": 22,
+      "x": -110,
+      "y": 0
+    },
+    {
+      "id": 23,
+      "x": -110,
+      "y": 15
+    },
+    {
+      "id": 24,
+      "x": -160,
+      "y": 0
+    },
+    {
+      "id": 25,
+      "x": -175,
+      "y": 0
+    }
+  ],
+  "segments": [
+    {
+      "start": 1,
+      "end": 2,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 3,
+      "end": 2,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 2,
+      "end": 4,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 5,
+      "end": 4,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 4,
+      "end": 6,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 6,
+      "end": 7,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 1,
+      "end": 8,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 9,
+      "end": 8,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 8,
+      "end": 10,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 11,
+      "end": 10,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 10,
+      "end": 12,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 12,
+      "end": 13,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 1,
+      "end": 14,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 15,
+      "end": 14,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 14,
+      "end": 16,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 17,
+      "end": 16,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 16,
+      "end": 18,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 18,
+      "end": 19,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 1,
+      "end": 20,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 21,
+      "end": 20,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 20,
+      "end": 22,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 23,
+      "end": 22,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 22,
+      "end": 24,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 24,
+      "end": 25,
+      "profile": "two_lane",
+      "locked": true
+    }
+  ],
+  "buildings": [
+    {
+      "id": 1,
+      "type": "house",
+      "x": -22,
+      "y": 70,
+      "door": 3,
+      "perMinute": 5
+    },
+    {
+      "id": 2,
+      "type": "house",
+      "x": 22,
+      "y": 110,
+      "door": 5,
+      "perMinute": 5
+    },
+    {
+      "id": 3,
+      "type": "shop",
+      "x": 0.0,
+      "y": 187.0,
+      "door": 7
+    },
+    {
+      "id": 4,
+      "type": "house",
+      "x": 70,
+      "y": 21,
+      "door": 9,
+      "perMinute": 5
+    },
+    {
+      "id": 5,
+      "type": "house",
+      "x": 110,
+      "y": -21,
+      "door": 11,
+      "perMinute": 5
+    },
+    {
+      "id": 6,
+      "type": "office",
+      "x": 187.0,
+      "y": 0.0,
+      "door": 13
+    },
+    {
+      "id": 7,
+      "type": "house",
+      "x": 22,
+      "y": -70,
+      "door": 15,
+      "perMinute": 5
+    },
+    {
+      "id": 8,
+      "type": "house",
+      "x": -22,
+      "y": -110,
+      "door": 17,
+      "perMinute": 5
+    },
+    {
+      "id": 9,
+      "type": "shop",
+      "x": 0.0,
+      "y": -187.0,
+      "door": 19
+    },
+    {
+      "id": 10,
+      "type": "house",
+      "x": -70,
+      "y": -21,
+      "door": 21,
+      "perMinute": 5
+    },
+    {
+      "id": 11,
+      "type": "house",
+      "x": -110,
+      "y": 21,
+      "door": 23,
+      "perMinute": 5
+    },
+    {
+      "id": 12,
+      "type": "office",
+      "x": -187.0,
+      "y": 0.0,
+      "door": 25
+    }
+  ],
+  "objective": {
+    "trips": 120,
+    "stars": [
+      {
+        "maxAverageTrip": 60
+      },
+      {
+        "maxAverageTrip": 46
+      }
+    ]
+  }
+}

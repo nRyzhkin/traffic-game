@@ -1,0 +1,8 @@
+{
+    "name": "TrafficGame.Presentation",
+    "rootNamespace": "TrafficGame.Presentation",
+    "references": [
+        "TrafficGame.Core"
+    ],
+    "autoReferenced": false
+}

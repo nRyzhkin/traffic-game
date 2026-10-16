@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "name": "Sandbox",
+  "nodes": [
+    {
+      "id": 1,
+      "x": -320,
+      "y": 0
+    },
+    {
+      "id": 2,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 3,
+      "x": 300,
+      "y": 0
+    },
+    {
+      "id": 4,
+      "x": 0,
+      "y": 230
+    },
+    {
+      "id": 5,
+      "x": 0,
+      "y": -250
+    },
+    {
+      "id": 6,
+      "x": 470,
+      "y": 200
+    },
+    {
+      "id": 7,
+      "x": -220,
+      "y": -250
+    },
+    {
+      "id": 8,
+      "x": 200,
+      "y": -250
+    },
+    {
+      "id": 9,
+      "x": -170,
+      "y": 380
+    }
+  ],
+  "segments": [
+    {
+      "start": 1,
+      "end": 2,
+      "profile": "four_lane"
+    },
+    {
+      "start": 2,
+      "end": 3,
+      "profile": "four_lane"
+    },
+    {
+      "start": 2,
+      "end": 4,
+      "profile": "two_lane"
+    },
+    {
+      "start": 2,
+      "end": 5,
+      "profile": "two_lane"
+    },
+    {
+      "start": 3,
+      "end": 6,
+      "profile": "four_lane",
+      "control1": [
+        390,
+        0
+      ],
+      "control2": [
+        470,
+        90
+      ]
+    },
+    {
+      "start": 7,
+      "end": 5,
+      "profile": "two_lane"
+    },
+    {
+      "start": 5,
+      "end": 8,
+      "profile": "two_lane"
+    },
+    {
+      "start": 8,
+      "end": 3,
+      "profile": "two_lane",
+      "control1": [
+        300,
+        -250
+      ],
+      "control2": [
+        300,
+        -130
+      ]
+    },
+    {
+      "start": 4,
+      "end": 9,
+      "profile": "one_way_two_lane",
+      "control1": [
+        0,
+        330
+      ],
+      "control2": [
+        -80,
+        380
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "node": 1,
+      "perMinute": 8
+    },
+    {
+      "node": 6,
+      "perMinute": 8
+    },
+    {
+      "node": 7,
+      "perMinute": 8
+    },
+    {
+      "node": 9,
+      "perMinute": 8
+    }
+  ],
+  "budget": 50000,
+  "titleKey": "level.sandbox.title"
+}

@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "name": "First road",
+  "titleKey": "level.first_road.title",
+  "introKey": "level.first_road.intro",
+  "budget": 2500,
+  "camera": {
+    "x": -5,
+    "y": 0,
+    "halfHeight": 110
+  },
+  "objective": {
+    "trips": 20,
+    "stars": [
+      {
+        "maxSpent": 1200
+      },
+      {
+        "maxAverageTrip": 40
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "x": -118,
+      "y": 50
+    },
+    {
+      "id": 2,
+      "x": -103,
+      "y": 50
+    },
+    {
+      "id": 3,
+      "x": -118,
+      "y": 0
+    },
+    {
+      "id": 4,
+      "x": -103,
+      "y": 0
+    },
+    {
+      "id": 5,
+      "x": -118,
+      "y": -50
+    },
+    {
+      "id": 6,
+      "x": -103,
+      "y": -50
+    },
+    {
+      "id": 7,
+      "x": 100,
+      "y": 0
+    },
+    {
+      "id": 8,
+      "x": 85,
+      "y": 0
+    }
+  ],
+  "segments": [
+    {
+      "start": 1,
+      "end": 2,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 3,
+      "end": 4,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 5,
+      "end": 6,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 7,
+      "end": 8,
+      "profile": "two_lane",
+      "locked": true
+    }
+  ],
+  "buildings": [
+    {
+      "id": 1,
+      "type": "house",
+      "x": -125,
+      "y": 50,
+      "door": 1,
+      "perMinute": 4
+    },
+    {
+      "id": 2,
+      "type": "house",
+      "x": -125,
+      "y": 0,
+      "door": 3,
+      "perMinute": 4
+    },
+    {
+      "id": 3,
+      "type": "house",
+      "x": -125,
+      "y": -50,
+      "door": 5,
+      "perMinute": 4
+    },
+    {
+      "id": 4,
+      "type": "shop",
+      "x": 116.0,
+      "y": 0.0,
+      "door": 7
+    }
+  ]
+}

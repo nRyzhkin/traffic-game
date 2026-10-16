@@ -1,0 +1,4 @@
+<linker>
+    <!-- Level and save DTOs are created by Newtonsoft.Json through reflection. -->
+    <assembly fullname="TrafficGame.Core" preserve="all" />
+</linker>

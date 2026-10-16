@@ -1,0 +1,1567 @@
+/* Material 3 style UI (the look of Flutter apps) with a light and a dark theme.
+   Colors are custom properties set on .root and overridden by .theme-dark; components only use var(--…).
+   Sizes are in units of the reference resolution (1280x720 landscape, 390x844 portrait, scaled to "expand"),
+   the same pixels as the mockups. */
+
+.root {
+    flex-grow: 1;
+    -unity-font-definition: url("Fonts/Inter-Regular.ttf");
+    font-size: 15px;
+
+    --surface: rgb(251, 248, 253);
+    --surface-low: rgb(245, 243, 248);
+    --surface-container: rgb(239, 237, 242);
+    --surface-high: rgb(233, 231, 236);
+    --surface-highest: rgb(228, 225, 230);
+    --on-surface: rgb(27, 27, 31);
+    --on-surface-variant: rgb(70, 70, 79);
+    --outline: rgb(119, 118, 128);
+    --outline-variant: rgb(199, 197, 208);
+    --inverse-surface: rgb(48, 48, 52);
+    --inverse-on-surface: rgb(243, 240, 244);
+    --scrim: rgba(16, 16, 20, 0.4);
+    --primary: rgb(48, 86, 200);
+    --on-primary: rgb(255, 255, 255);
+    --primary-container: rgb(220, 225, 255);
+    --on-primary-container: rgb(0, 23, 75);
+    --secondary-container: rgb(221, 225, 249);
+    --on-secondary-container: rgb(22, 27, 44);
+    --star: rgb(227, 155, 0);
+    --money: rgb(30, 107, 51);
+    --money-container: rgb(207, 241, 213);
+    --error: rgb(186, 26, 26);
+    --elevation-border: rgba(20, 20, 30, 0.1);
+    --hover: rgba(27, 27, 31, 0.06);
+
+    --curtain: rgb(234, 231, 223);
+    --icon-color: rgb(70, 70, 79);
+    color: var(--on-surface);
+}
+
+.root.theme-dark {
+    --surface: rgb(19, 19, 22);
+    --surface-low: rgb(27, 27, 31);
+    --surface-container: rgb(31, 31, 35);
+    --surface-high: rgb(42, 41, 45);
+    --surface-highest: rgb(53, 52, 56);
+    --on-surface: rgb(228, 225, 230);
+    --on-surface-variant: rgb(199, 197, 208);
+    --outline: rgb(145, 143, 154);
+    --outline-variant: rgb(70, 70, 79);
+    --inverse-surface: rgb(228, 225, 230);
+    --inverse-on-surface: rgb(48, 48, 52);
+    --scrim: rgba(0, 0, 0, 0.55);
+    --primary: rgb(181, 196, 255);
+    --on-primary: rgb(0, 40, 122);
+    --primary-container: rgb(27, 62, 156);
+    --on-primary-container: rgb(220, 225, 255);
+    --secondary-container: rgb(65, 70, 89);
+    --on-secondary-container: rgb(221, 225, 249);
+    --star: rgb(255, 201, 74);
+    --money: rgb(166, 224, 176);
+    --money-container: rgb(31, 77, 42);
+    --error: rgb(255, 180, 171);
+    --elevation-border: rgba(255, 255, 255, 0.07);
+    --hover: rgba(228, 225, 230, 0.08);
+    --curtain: rgb(22, 24, 27);
+
+    --icon-color: rgb(199, 197, 208);
+}
+
+/* Motion. Nothing on screen changes in a single frame: colors (hover, selection, theme switches) blend, things that
+   appear or leave fade, slide or fold (class .is-hidden, see Motion.cs), presses shrink a little.
+   Elements with their own transition list repeat the color properties. Translations are in px: UI Toolkit does not blend
+   between % and px, a % offset would jump. */
+
+* {
+    transition-property: background-color, border-color, color;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-out-cubic;
+}
+
+.safe-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.hud {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+}
+
+.hud.is-hidden {
+    opacity: 0;
+}
+
+.hud.is-hidden .hud-top {
+    translate: 0 -24px;
+}
+
+.hud.is-hidden .bottom {
+    translate: 0 24px;
+}
+
+/* Icons draw in their text color; --icon-marker only makes UI Toolkit report style changes to them. */
+.icon {
+    width: 24px;
+    height: 24px;
+    color: var(--icon-color);
+    --icon-marker: 1;
+}
+
+/* Pressable things: colors blend, a press shrinks them a little. */
+.icon-button,
+.button,
+.fab,
+.chip,
+.level,
+.sandbox,
+.segment {
+    transition-property: background-color, border-color, color, scale, opacity, translate;
+    transition-duration: 0.25s, 0.25s, 0.25s, 0.16s, 0.25s, 0.35s;
+}
+
+.icon-button:active,
+.button:active,
+.fab:active,
+.chip:active,
+.level:active,
+.sandbox:active,
+.segment:active {
+    scale: 0.94;
+}
+
+.bold {
+    -unity-font-definition: url("Fonts/Inter-SemiBold.ttf");
+}
+
+/* Buttons */
+
+.icon-button {
+    width: 48px;
+    height: 48px;
+    margin: 0;
+    padding: 0;
+    border-width: 0;
+    border-radius: 24px;
+    background-color: rgba(0, 0, 0, 0);
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-button:hover {
+    background-color: var(--hover);
+}
+
+.icon-button:disabled {
+    opacity: 0.38;
+}
+
+.icon-button--surface {
+    background-color: var(--surface-high);
+    border-width: 1px;
+    border-color: var(--elevation-border);
+    --icon-color: var(--on-surface);
+}
+
+.icon-button--surface:hover {
+    background-color: var(--surface-highest);
+}
+
+.button {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    margin: 0;
+    padding: 0 20px;
+    border-width: 0;
+    border-radius: 24px;
+    -unity-font-definition: url("Fonts/Inter-SemiBold.ttf");
+    font-size: 15px;
+}
+
+.button .icon {
+    width: 20px;
+    height: 20px;
+}
+
+.button__label {
+    margin: 0 6px;
+    padding: 0;
+    -unity-font-definition: url("Fonts/Inter-SemiBold.ttf");
+}
+
+.button--large {
+    height: 56px;
+    border-radius: 28px;
+    font-size: 17px;
+}
+
+.button--filled {
+    background-color: var(--primary);
+    color: var(--on-primary);
+    --icon-color: var(--on-primary);
+}
+
+.button--tonal {
+    background-color: var(--secondary-container);
+    color: var(--on-secondary-container);
+    --icon-color: var(--on-secondary-container);
+}
+
+.button--text {
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--primary);
+    padding: 0 14px;
+}
+
+.button--text:hover {
+    background-color: var(--hover);
+}
+
+.fab {
+    flex-direction: row;
+    align-items: center;
+    height: 56px;
+    margin: 0 6px;
+    padding: 0 22px 0 18px;
+    border-width: 0;
+    border-radius: 16px;
+}
+
+.fab--square {
+    width: 56px;
+    padding: 0;
+    justify-content: center;
+}
+
+.fab--primary {
+    background-color: var(--primary);
+    color: var(--on-primary);
+    --icon-color: var(--on-primary);
+}
+
+.fab--primary:disabled {
+    opacity: 0.45;
+}
+
+.fab--tonal {
+    background-color: var(--secondary-container);
+    --icon-color: var(--on-secondary-container);
+}
+
+.fab__label {
+    margin: 0 0 0 10px;
+    padding: 0;
+    font-size: 16px;
+    -unity-font-definition: url("Fonts/Inter-SemiBold.ttf");
+    color: var(--on-primary);
+}
+
+/* Top bar: menu and money, the goal, speed */
+
+.hud-top {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    top: 16px;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.hud-top__left {
+    flex-direction: row;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.balance {
+    flex-direction: row;
+    align-items: center;
+    height: 48px;
+    margin-left: 8px;
+    padding: 0 18px 0 14px;
+    border-radius: 24px;
+    border-width: 1px;
+    border-color: var(--elevation-border);
+    background-color: var(--surface-high);
+    --icon-color: var(--money);
+}
+
+.balance .icon {
+    width: 22px;
+    height: 22px;
+}
+
+.balance__label {
+    margin: 0 0 0 8px;
+    padding: 0;
+    font-size: 18px;
+    -unity-font-definition: url("Fonts/Inter-SemiBold.ttf");
+    color: var(--money);
+}
+
+.objective {
+    flex-grow: 1;
+    flex-shrink: 1;
+    max-width: 380px;
+    margin: 0 12px;
+    padding: 12px 18px 14px 18px;
+    border-radius: 20px;
+    border-width: 1px;
+    border-color: var(--elevation-border);
+    background-color: var(--surface-high);
+    transition-property: opacity, translate, background-color, border-color;
+    transition-duration: 0.35s, 0.35s, 0.25s, 0.25s;
+}
+
+.objective.is-hidden {
+    opacity: 0;
+    translate: 0 -12px;
+}
+
+.objective__row {
+    flex-direction: row;
+    align-items: center;
+}
+
+.objective__row .icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    --icon-color: var(--primary);
+}
+
+.objective__label {
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    -unity-font-definition: url("Fonts/Inter-SemiBold.ttf");
+}
+
+.objective__count {
+    margin: 0;
+    padding: 0;
+    font-size: 17px;
+    -unity-font-definition: url("Fonts/Inter-SemiBold.ttf");
+}
+
+.progress {
+    flex-direction: row;
+    height: 8px;
+    margin: 8px 0;
+}
+
+.progress__fill {
+    border-radius: 4px;
+    background-color: var(--primary);
+    transition-property: width, background-color;
+    transition-duration: 0.6s, 0.25s;
+}
+
+.progress__rest {
+    flex-grow: 1;
+    margin-left: 4px;
+    border-radius: 4px;
+    background-color: var(--secondary-container);
+}
+
+.objective__detail {
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    color: var(--on-surface-variant);
+}
+
+.objective__stars {
+    flex-direction: row;
+}
+
+.objective__stars .icon {
+    width: 16px;
+    height: 16px;
+    margin: 0 0 0 2px;
+    --icon-color: var(--star);
+    transition-property: scale, color;
+    transition-duration: 0.35s, 0.25s;
+    transition-timing-function: ease-out-back, ease-out-cubic;
+}
+
+/* A star just earned swells, then settles back (Elements.Stars). */
+.objective__stars .icon.star--pop {
+    scale: 1.6;
+    transition-duration: 0.14s, 0.25s;
+    transition-timing-function: ease-out-cubic;
+}
+
+.objective__stars .icon.is-off {
+    --icon-color: var(--outline-variant);
+}
+
+.hud-top__right {
+    align-items: flex-end;
+    flex-shrink: 0;
+}
+
+.segmented {
+    flex-direction: row;
+    padding: 4px;
+    border-radius: 24px;
+    border-width: 1px;
+    border-color: var(--elevation-border);
+    background-color: var(--surface-high);
+}
+
+.segment {
+    width: 52px;
+    height: 40px;
+    margin: 0 2px;
+    padding: 0;
+    border-width: 0;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0);
+    align-items: center;
+    justify-content: center;
+    color: var(--on-surface-variant);
+    font-size: 15px;
+    -unity-font-definition: url("Fonts/Inter-SemiBold.ttf");
+    --icon-color: var(--on-surface-variant);
+}
+
+.segment:hover {
+    background-color: var(--hover);
+}
+
+.segment .icon {
+    width: 20px;
+    height: 20px;
+}
+
+.segment.is-selected,
+.segment.is-selected:hover {
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--on-primary);
+    --icon-color: var(--on-primary);
+}
+
+/* The filled pill under the chosen segment; it slides between segments (SegmentThumb.cs). */
+.segmented__thumb {
+    position: absolute;
+    border-radius: 20px;
+    background-color: var(--primary);
+    transition-property: left, top, width, height, background-color, opacity;
+    transition-duration: 0.32s, 0.32s, 0.32s, 0.32s, 0.25s, 0.2s;
+}
+
+.segmented__thumb.is-hidden {
+    opacity: 0;
+}
+
+.segmented--small .segment {
+    width: 48px;
+    height: 36px;
+    border-radius: 18px;
+}
+
+.segmented--small .segmented__thumb {
+    border-radius: 18px;
+}
+
+.boost {
+    flex-direction: row;
+    align-items: center;
+    height: 30px;
+    margin-top: 8px;
+    padding: 0 12px 0 10px;
+    border-radius: 15px;
+    background-color: var(--primary-container);
+    --icon-color: var(--on-primary-container);
+    transition-property: opacity, scale, background-color, color;
+    transition-duration: 0.25s;
+}
+
+.boost.is-hidden {
+    opacity: 0;
+    scale: 0.8;
+}
+
+.boost .icon {
+    width: 16px;
+    height: 16px;
+}
+
+.boost__label {
+    margin: 0 0 0 6px;
+    padding: 0;
+    font-size: 13px;
+    -unity-font-definition: url("Fonts/Inter-SemiBold.ttf");
+    color: var(--on-primary-container);
+}
+
+/* Bottom: hint, back and ✓, road types, tools */
+
+.bottom {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    align-items: center;
+}
+
+.hint {
+    max-width: 640px;
+    margin-bottom: 10px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background-color: var(--inverse-surface);
+    color: var(--inverse-on-surface);
+    font-size: 13px;
+    white-space: normal;
+    -unity-text-align: middle-center;
+    opacity: 0.92;
+    transition-property: opacity, translate, background-color, color;
+    transition-duration: 0.22s;
+}
+
+.hint.is-hidden {
+    opacity: 0;
+    translate: 0 8px;
+}
+
+/* The hint text is changing: it fades through (Motion.SetText). */
+.hint.is-swapping {
+    opacity: 0;
+    transition-duration: 0.11s;
+}
+
+.actions {
+    flex-direction: row;
+    align-items: center;
+    height: 56px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    transition-property: height, margin-bottom, opacity;
+    transition-duration: 0.3s;
+}
+
+/* Without an active tool there is nothing to confirm: landscape folds the row away, portrait keeps undo and redo. */
+.actions--idle {
+    height: 0;
+    margin-bottom: 0;
+    opacity: 0;
+}
+
+.portrait .actions--idle {
+    height: 56px;
+    margin-bottom: 10px;
+    opacity: 1;
+}
+
+.actions--idle .fab {
+    opacity: 0;
+    scale: 0.8;
+}
+
+.profile-bar {
+    max-width: 100%;
+    height: 36px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    transition-property: height, margin-bottom, opacity, translate;
+    transition-duration: 0.3s;
+}
+
+.profile-bar.is-hidden {
+    height: 0;
+    margin-bottom: 0;
+    opacity: 0;
+    translate: 0 8px;
+}
+
+.profile-bar {
+    flex-direction: row;
+    align-items: center;
+}
+
+.profile-bar__items {
+    flex-shrink: 1;
+}
+
+.profile-bar__items .unity-scroll-view__content-container {
+    flex-direction: row;
+}
+
+/* Elevation stepper at the start of the road type row: ▼ Height 1 ▲ */
+.stepper {
+    flex-direction: row;
+    align-items: center;
+    flex-shrink: 0;
+    height: 36px;
+    margin: 0 4px;
+    border-width: 1px;
+    border-radius: 18px;
+    border-color: var(--outline-variant);
+    background-color: var(--surface-low);
+}
+
+.stepper__button {
+    width: 36px;
+    height: 34px;
+    margin: 0;
+    padding: 0;
+    border-width: 0;
+    border-radius: 17px;
+    background-color: rgba(0, 0, 0, 0);
+    align-items: center;
+    justify-content: center;
+    transition-property: background-color, scale, opacity;
+    transition-duration: 0.25s, 0.16s, 0.25s;
+}
+
+.stepper__button:hover {
+    background-color: var(--hover);
+}
+
+.stepper__button:active {
+    scale: 0.88;
+}
+
+.stepper__button:disabled {
+    opacity: 0.3;
+}
+
+.stepper__button .icon {
+    width: 18px;
+    height: 18px;
+    --icon-color: var(--on-surface-variant);
+}
+
+.stepper__label {
+    margin: 0 2px;
+    padding: 0;
+    font-size: 14px;
+    color: var(--on-surface-variant);
+    -unity-font-definition: url("Fonts/Inter-SemiBold.ttf");
+    -unity-text-align: middle-center;
+}
+
+.chip {
+    flex-direction: row;
+    align-items: center;
+    height: 36px;
+    margin: 0 4px;
+    padding: 0 14px;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: var(--outline-variant);
+    background-color: var(--surface-low);
+    color: var(--on-surface-variant);
+    --icon-color: var(--on-secondary-container);
+}
+
+.chip {
+    transition-property: background-color, border-color, color, scale, padding-left;
+    transition-duration: 0.25s, 0.25s, 0.25s, 0.16s, 0.25s;
+}
+
+.chip:hover {
+    background-color: var(--surface-container);
+}
+
+.chip .icon {
+    width: 0;
+    height: 18px;
+    margin-right: 0;
+    opacity: 0;
+    transition-property: width, margin-right, opacity, color;
+    transition-duration: 0.25s;
+}
+
+.chip.is-selected {
+    padding-left: 10px;
+    border-color: var(--secondary-container);
+    background-color: var(--secondary-container);
+    color: var(--on-secondary-container);
+}
+
+.chip.is-selected .icon {
+    width: 18px;
+    margin-right: 6px;
+    opacity: 1;
+}
+
+.chip__name {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    -unity-font-definition: url("Fonts/Inter-SemiBold.ttf");
+}
+
+.chip__details {
+    margin: 0 0 0 6px;
+    padding: 0;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.toolbar {
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 10px;
+    border-radius: 28px;
+    border-width: 1px;
+    border-color: var(--elevation-border);
+    background-color: var(--surface-container);
+}
+
+.tool {
+    width: 66px;
+    height: 60px;
+    margin: 0 1px;
+    padding: 0;
+    border-width: 0;
+    border-radius: 16px;
+    background-color: rgba(0, 0, 0, 0);
+    align-items: center;
+    justify-content: center;
+}
+
+/* The pill behind the chosen tool grows out from the icon. */
+.tool__indicator {
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    align-items: center;
+    justify-content: center;
+    transition-property: width, background-color, scale;
+    transition-duration: 0.3s, 0.25s, 0.16s;
+}
+
+.tool:active .tool__indicator {
+    scale: 0.9;
+}
+
+.tool:hover .tool__indicator {
+    background-color: var(--hover);
+}
+
+.tool__label {
+    margin: 4px 0 0 0;
+    padding: 0;
+    font-size: 12px;
+    color: var(--on-surface-variant);
+    -unity-font-definition: url("Fonts/Inter-SemiBold.ttf");
+}
+
+.tool.is-selected .tool__indicator {
+    width: 56px;
+    background-color: var(--secondary-container);
+    --icon-color: var(--on-secondary-container);
+}
+
+.tool.is-selected .tool__label {
+    color: var(--on-surface);
+}
+
+.toolbar__history {
+    flex-direction: row;
+    align-items: center;
+}
+
+.toolbar__divider {
+    width: 1px;
+    height: 40px;
+    margin: 0 6px;
+    background-color: var(--outline-variant);
+}
+
+/* Tooltip next to the pointer */
+
+.tooltip {
+    position: absolute;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background-color: var(--inverse-surface);
+    transition-property: opacity, background-color;
+    transition-duration: 0.14s, 0.25s;
+}
+
+.tooltip.is-hidden {
+    opacity: 0;
+}
+
+/* Covers the map while a level or the menu backdrop is swapped (GameUi.ChangeScene). */
+.curtain {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--curtain);
+    transition-property: opacity, background-color;
+    transition-duration: 0.2s, 0.25s;
+    transition-timing-function: ease-in-out-sine;
+}
+
+.curtain.is-hidden {
+    opacity: 0;
+    transition-duration: 0.45s, 0.25s;
+}
+
+.tooltip__line {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    color: var(--inverse-on-surface);
+}
+
+.tooltip__line--first {
+    font-size: 15px;
+    -unity-font-definition: url("Fonts/Inter-SemiBold.ttf");
+}
+
+.tooltip__line--error {
+    color: rgb(255, 160, 150);
+}
+
+.theme-dark .tooltip__line--error {
+    color: rgb(186, 26, 26);
+}
+
+/* Title menu: a side sheet over the live map */
+
+.menu {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transition-property: opacity;
+    transition-duration: 0.4s;
+}
+
+.menu.is-hidden {
+    opacity: 0;
+}
+
+.menu.is-hidden .menu__sheet {
+    translate: -520px 0;
+}
+
+.menu__sheet {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 500px;
+    max-width: 100%;
+    padding: 32px 32px 24px 32px;
+    border-top-right-radius: 28px;
+    border-bottom-right-radius: 28px;
+    border-right-width: 1px;
+    border-color: var(--elevation-border);
+    background-color: var(--surface-low);
+    transition-property: translate, background-color, border-color;
+    transition-duration: 0.4s, 0.25s, 0.25s;
+}
+
+.menu__header {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.menu__logo {
+    width: 64px;
+    height: 64px;
+    margin-right: 16px;
+    border-radius: 20px;
+    background-color: var(--primary-container);
+    align-items: center;
+    justify-content: center;
+    --icon-color: var(--on-primary-container);
+}
+
+.menu__logo .icon {
+    width: 34px;
+    height: 34px;
+}
+
+.menu__titles {
+    flex-shrink: 1;
+}
+
+.menu__title {
+    margin: 0;
+    padding: 0;
+    font-size: 32px;
+    -unity-font-definition: url("Fonts/Inter-SemiBold.ttf");
+}
+
+.menu__subtitle {
+    margin: 2px 0 0 0;
+    padding: 0;
+    font-size: 15px;
+    color: var(--on-surface-variant);
+    white-space: normal;
+}
+
+.menu__section {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 18px 0 12px 0;
+}
+
+.menu__section-title {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    -unity-font-definition: url("Fonts/Inter-SemiBold.ttf");
+}
+
+.menu__stars {
+    flex-direction: row;
+    align-items: center;
+    --icon-color: var(--star);
+}
+
+.menu__stars .icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+}
+
+.menu__stars-label {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    color: var(--on-surface-variant);
+    -unity-font-definition: url("Fonts/Inter-SemiBold.ttf");
+}
+
+.menu__scroll {
+    flex-shrink: 1;
+}
+
+.menu__levels {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.level {
+    width: 32%;
+    height: 118px;
+    margin: 0 0 12px 0;
+    padding: 12px;
+    border-width: 0;
+    border-radius: 20px;
+    background-color: var(--surface-high);
+    align-items: flex-start;
+    justify-content: space-between;
+    color: var(--on-surface);
+    -unity-text-align: upper-left;
+}
+
+.level:hover {
+    background-color: var(--surface-highest);
+}
+
+.level__top {
+    flex-direction: row;
+    align-self: stretch;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.level__number {
+    width: 32px;
+    height: 32px;
+    margin: 0;
+    padding: 0;
+    border-radius: 16px;
+    background-color: var(--secondary-container);
+    color: var(--on-secondary-container);
+    font-size: 15px;
+    -unity-font-definition: url("Fonts/Inter-SemiBold.ttf");
+    -unity-text-align: middle-center;
+}
+
+.level__badge {
+    margin: 0;
+    padding: 0;
+    font-size: 11px;
+    color: var(--primary);
+    -unity-font-definition: url("Fonts/Inter-SemiBold.ttf");
+}
+
+.level__title {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    white-space: normal;
+    -unity-font-definition: url("Fonts/Inter-SemiBold.ttf");
+}
+
+.level__stars {
+    flex-direction: row;
+    --icon-color: var(--star);
+}
+
+.level__stars .icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 2px;
+}
+
+.level__stars .icon.is-off {
+    --icon-color: var(--outline);
+}
+
+.level .icon.level__lock {
+    width: 18px;
+    height: 18px;
+    --icon-color: var(--on-surface-variant);
+}
+
+.level--current {
+    border-width: 2px;
+    border-color: var(--primary);
+    background-color: var(--primary-container);
+}
+
+.level--current .level__number {
+    background-color: var(--primary);
+    color: var(--on-primary);
+}
+
+.level--locked {
+    background-color: var(--surface-container);
+    opacity: 0.6;
+}
+
+.level--locked .level__number {
+    background-color: var(--surface-highest);
+    color: var(--on-surface-variant);
+}
+
+/* Cards cascade in after the sheet (MenuView). */
+.level.level--enter {
+    opacity: 0;
+    translate: 0 16px;
+    transition-duration: 0s;
+}
+
+.sandbox {
+    flex-direction: row;
+    align-items: center;
+    height: 72px;
+    margin: 6px 0 0 0;
+    padding: 0 18px;
+    border-width: 0;
+    border-radius: 20px;
+    background-color: var(--secondary-container);
+    --icon-color: var(--on-secondary-container);
+}
+
+.sandbox > .icon {
+    width: 28px;
+    height: 28px;
+}
+
+.sandbox__text {
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin: 0 14px;
+    -unity-text-align: middle-left;
+}
+
+.sandbox__title {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    color: var(--on-secondary-container);
+    -unity-font-definition: url("Fonts/Inter-SemiBold.ttf");
+}
+
+.sandbox__subtitle {
+    margin: 2px 0 0 0;
+    padding: 0;
+    font-size: 13px;
+    color: var(--on-secondary-container);
+    opacity: 0.8;
+    white-space: normal;
+}
+
+.menu__footer {
+    flex-direction: row;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 16px;
+}
+
+.menu__footer .segmented {
+    background-color: var(--surface-high);
+}
+
+/* Dialogs: the task when a level starts, the result when it ends */
+
+.modal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--scrim);
+    transition-property: opacity, background-color;
+    transition-duration: 0.3s, 0.25s;
+}
+
+.modal.is-hidden {
+    opacity: 0;
+}
+
+.dialog {
+    width: 520px;
+    max-width: 94%;
+    max-height: 96%;
+    padding: 28px 28px 24px 28px;
+    border-radius: 28px;
+    background-color: var(--surface-high);
+    transition-property: opacity, scale, translate, background-color;
+    transition-duration: 0.3s, 0.35s, 0.4s, 0.25s;
+}
+
+.dialog.is-hidden {
+    opacity: 0;
+    scale: 0.92;
+}
+
+.dialog__handle {
+    display: none;
+    align-self: center;
+    width: 32px;
+    height: 4px;
+    margin-bottom: 14px;
+    border-radius: 2px;
+    background-color: var(--outline);
+    opacity: 0.6;
+}
+
+.dialog__title {
+    margin: 0;
+    padding: 0;
+    font-size: 28px;
+    -unity-font-definition: url("Fonts/Inter-SemiBold.ttf");
+    white-space: normal;
+}
+
+.dialog__text {
+    margin: 16px 0 0 0;
+    padding: 0;
+    font-size: 16px;
+    color: var(--on-surface-variant);
+    white-space: normal;
+}
+
+.intro__header {
+    flex-direction: row;
+    align-items: center;
+}
+
+.intro__icon {
+    width: 56px;
+    height: 56px;
+    margin-right: 14px;
+    border-radius: 18px;
+    background-color: var(--primary-container);
+    align-items: center;
+    justify-content: center;
+    --icon-color: var(--on-primary-container);
+}
+
+.intro__icon .icon {
+    width: 30px;
+    height: 30px;
+}
+
+.intro__titles {
+    flex-shrink: 1;
+}
+
+.intro__caption {
+    margin: 0 0 2px 0;
+    padding: 0;
+    font-size: 13px;
+    color: var(--primary);
+    -unity-font-definition: url("Fonts/Inter-SemiBold.ttf");
+}
+
+.intro__goals {
+    margin: 16px 0 0 0;
+}
+
+.goal {
+    flex-direction: row;
+    align-items: center;
+    margin: 0 0 10px 0;
+}
+
+.goal .icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    --icon-color: var(--star);
+}
+
+.goal--trips .icon {
+    --icon-color: var(--primary);
+}
+
+.goal__text {
+    flex-shrink: 1;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    white-space: normal;
+    -unity-font-definition: url("Fonts/Inter-SemiBold.ttf");
+}
+
+.tip {
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 6px 0 0 0;
+    padding: 14px 16px;
+    border-radius: 16px;
+    background-color: var(--secondary-container);
+    --icon-color: var(--on-secondary-container);
+}
+
+.tip .icon {
+    width: 22px;
+    height: 22px;
+    margin-right: 12px;
+}
+
+.tip__text {
+    flex-shrink: 1;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    color: var(--on-secondary-container);
+    white-space: normal;
+}
+
+.intro__buttons {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 18px;
+}
+
+#intro-back {
+    margin-right: 8px;
+    --icon-color: var(--primary);
+}
+
+#intro-start {
+    flex-grow: 1;
+}
+
+.result__stars {
+    flex-direction: row;
+    align-self: center;
+    align-items: flex-end;
+    --icon-color: var(--star);
+}
+
+.result__stars .icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 3px;
+    transition-property: scale, opacity, color;
+    transition-duration: 0.45s, 0.2s, 0.25s;
+    transition-timing-function: ease-out-back, ease-out-cubic, ease-out-cubic;
+}
+
+/* Stars land one after another when the result opens (ResultView). */
+.result__stars .icon.star--enter {
+    scale: 0.2;
+    opacity: 0;
+    transition-duration: 0s;
+}
+
+.result__stars .icon.result__star--big {
+    width: 76px;
+    height: 76px;
+    margin-bottom: 10px;
+}
+
+.result__stars .icon.is-off {
+    --icon-color: var(--outline-variant);
+}
+
+.result__title {
+    margin-top: 14px;
+    -unity-text-align: middle-center;
+}
+
+.result__subtitle {
+    margin: 4px 0 0 0;
+    padding: 0;
+    font-size: 15px;
+    color: var(--on-surface-variant);
+    -unity-text-align: middle-center;
+}
+
+.result__lines {
+    margin: 18px 0 0 0;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.result__line {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 2px;
+    padding: 12px 16px;
+    background-color: var(--surface-container);
+    --icon-color: var(--primary);
+}
+
+.result__line .icon {
+    width: 22px;
+    height: 22px;
+    margin-right: 12px;
+}
+
+.result__line--missed {
+    --icon-color: var(--outline);
+}
+
+.result__line-text {
+    flex-shrink: 1;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    white-space: normal;
+    -unity-font-definition: url("Fonts/Inter-SemiBold.ttf");
+}
+
+.result__line--missed .result__line-text {
+    color: var(--on-surface-variant);
+}
+
+.result__statistics {
+    flex-direction: row;
+    margin: 12px 0 0 0;
+}
+
+.stat {
+    flex-grow: 1;
+    flex-basis: 0;
+    margin: 0 4px;
+    padding: 10px 14px;
+    border-radius: 14px;
+    background-color: var(--secondary-container);
+}
+
+.stat--money {
+    background-color: var(--money-container);
+}
+
+.stat__label {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    color: var(--on-secondary-container);
+    opacity: 0.85;
+    -unity-font-definition: url("Fonts/Inter-SemiBold.ttf");
+}
+
+.stat__value {
+    margin: 2px 0 0 0;
+    padding: 0;
+    font-size: 18px;
+    color: var(--on-secondary-container);
+    -unity-font-definition: url("Fonts/Inter-SemiBold.ttf");
+}
+
+.stat--money .stat__label,
+.stat--money .stat__value {
+    color: var(--money);
+}
+
+.result__buttons {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.result__spacer {
+    flex-grow: 1;
+}
+
+.result__buttons .button {
+    margin-left: 8px;
+}
+
+/* Portrait: goal under the top row, bottom sheets, full-width toolbar */
+
+.portrait .hud-top {
+    left: 12px;
+    right: 12px;
+    top: 12px;
+    flex-wrap: wrap;
+}
+
+.portrait .objective {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 56px;
+    max-width: none;
+    margin: 0;
+    padding: 10px 14px 12px 14px;
+    border-radius: 18px;
+}
+
+.portrait .hud-top__right {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.portrait .boost {
+    margin-top: 92px;
+}
+
+.portrait .segment {
+    width: 40px;
+    height: 36px;
+    border-radius: 18px;
+}
+
+.portrait .segmented__thumb {
+    border-radius: 18px;
+}
+
+.portrait .icon-button--surface,
+.portrait .balance {
+    height: 44px;
+}
+
+.portrait .icon-button--surface {
+    width: 44px;
+}
+
+.portrait .bottom {
+    left: 8px;
+    right: 8px;
+    bottom: 12px;
+}
+
+.portrait .toolbar {
+    align-self: stretch;
+    padding: 8px 4px;
+    justify-content: space-between;
+}
+
+.portrait .tool {
+    flex-grow: 1;
+    width: auto;
+    height: 64px;
+}
+
+.portrait .tool.is-selected .tool__indicator {
+    width: 52px;
+}
+
+.portrait .tool__label {
+    font-size: 11px;
+}
+
+.portrait .toolbar__history {
+    display: none;
+}
+
+.portrait .actions {
+    align-self: stretch;
+    justify-content: flex-end;
+}
+
+.portrait .menu.is-hidden .menu__sheet {
+    translate: 0 760px;
+}
+
+.portrait .menu__sheet {
+    top: auto;
+    width: 100%;
+    max-height: 82%;
+    padding: 24px 20px 20px 20px;
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+    border-bottom-right-radius: 0;
+    border-right-width: 0;
+}
+
+.portrait .modal {
+    justify-content: flex-end;
+}
+
+.portrait .dialog {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px 24px 28px 24px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.portrait .dialog.is-hidden {
+    opacity: 1;
+    scale: 1;
+    translate: 0 860px;
+}
+
+.portrait .dialog__handle {
+    display: flex;
+}
+
+/* Undo and redo move next to the actions on phones held upright. */
+
+.history-floating {
+    flex-direction: row;
+    margin-right: auto;
+    padding: 4px;
+    border-radius: 26px;
+    border-width: 1px;
+    border-color: var(--elevation-border);
+    background-color: var(--surface-high);
+    display: none;
+}
+
+.portrait .history-floating {
+    display: flex;
+}
+
+.history-floating .icon-button {
+    width: 44px;
+    height: 44px;
+    border-radius: 22px;
+}

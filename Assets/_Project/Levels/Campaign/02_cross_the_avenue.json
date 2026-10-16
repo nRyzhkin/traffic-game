@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "name": "Cross the avenue",
+  "titleKey": "level.cross_the_avenue.title",
+  "introKey": "level.cross_the_avenue.intro",
+  "budget": 3500,
+  "camera": {
+    "x": 0,
+    "y": 0,
+    "halfHeight": 150
+  },
+  "edges": [
+    {
+      "node": 1,
+      "perMinute": 4
+    },
+    {
+      "node": 2,
+      "perMinute": 4
+    }
+  ],
+  "objective": {
+    "trips": 20,
+    "stars": [
+      {
+        "maxSpent": 2800
+      },
+      {
+        "maxAverageTrip": 60
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "x": 0,
+      "y": 400
+    },
+    {
+      "id": 2,
+      "x": 0,
+      "y": -400
+    },
+    {
+      "id": 3,
+      "x": -138,
+      "y": 90
+    },
+    {
+      "id": 4,
+      "x": -123,
+      "y": 90
+    },
+    {
+      "id": 5,
+      "x": -138,
+      "y": 30
+    },
+    {
+      "id": 6,
+      "x": -123,
+      "y": 30
+    },
+    {
+      "id": 7,
+      "x": -138,
+      "y": -30
+    },
+    {
+      "id": 8,
+      "x": -123,
+      "y": -30
+    },
+    {
+      "id": 9,
+      "x": -138,
+      "y": -90
+    },
+    {
+      "id": 10,
+      "x": -123,
+      "y": -90
+    },
+    {
+      "id": 11,
+      "x": 137,
+      "y": 60
+    },
+    {
+      "id": 12,
+      "x": 122,
+      "y": 60
+    },
+    {
+      "id": 13,
+      "x": 137,
+      "y": -60
+    },
+    {
+      "id": 14,
+      "x": 122,
+      "y": -60
+    }
+  ],
+  "segments": [
+    {
+      "start": 1,
+      "end": 2,
+      "profile": "four_lane",
+      "locked": true
+    },
+    {
+      "start": 3,
+      "end": 4,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 5,
+      "end": 6,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 7,
+      "end": 8,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 9,
+      "end": 10,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 11,
+      "end": 12,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 13,
+      "end": 14,
+      "profile": "two_lane",
+      "locked": true
+    }
+  ],
+  "buildings": [
+    {
+      "id": 1,
+      "type": "house",
+      "x": -145,
+      "y": 90,
+      "door": 3,
+      "perMinute": 2
+    },
+    {
+      "id": 2,
+      "type": "house",
+      "x": -145,
+      "y": 30,
+      "door": 5,
+      "perMinute": 2
+    },
+    {
+      "id": 3,
+      "type": "house",
+      "x": -145,
+      "y": -30,
+      "door": 7,
+      "perMinute": 2
+    },
+    {
+      "id": 4,
+      "type": "house",
+      "x": -145,
+      "y": -90,
+      "door": 9,
+      "perMinute": 2
+    },
+    {
+      "id": 5,
+      "type": "office",
+      "x": 149.0,
+      "y": 60.0,
+      "door": 11
+    },
+    {
+      "id": 6,
+      "type": "office",
+      "x": 149.0,
+      "y": -60.0,
+      "door": 13
+    }
+  ]
+}

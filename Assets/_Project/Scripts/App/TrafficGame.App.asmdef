@@ -1,0 +1,12 @@
+{
+    "name": "TrafficGame.App",
+    "rootNamespace": "TrafficGame.App",
+    "references": [
+        "TrafficGame.Core",
+        "TrafficGame.Presentation",
+        "TrafficGame.Views",
+        "PrimeGames.SDK",
+        "PrimeGames.SDK.Common"
+    ],
+    "autoReferenced": false
+}

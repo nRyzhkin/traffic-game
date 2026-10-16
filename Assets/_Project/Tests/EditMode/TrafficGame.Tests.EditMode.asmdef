@@ -1,0 +1,23 @@
+{
+    "name": "TrafficGame.Tests.EditMode",
+    "rootNamespace": "TrafficGame.Tests",
+    "references": [
+        "TrafficGame.Core",
+        "TrafficGame.Presentation",
+        "TrafficGame.Views",
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll",
+        "Newtonsoft.Json.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ]
+}

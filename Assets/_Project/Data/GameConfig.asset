@@ -1,0 +1,261 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c87fb88567ba34d7299bef56a9f8b418, type: 3}
+  m_Name: GameConfig
+  m_EditorClassIdentifier: TrafficGame.App::TrafficGame.App.GameConfig
+  _worldSize: {x: 2000, y: 2000}
+  _groundCellSize: 50
+  _lightMap:
+    _groundA:
+      serializedVersion: 2
+      rgba: 4292863978
+    _groundB:
+      serializedVersion: 2
+      rgba: 4292272356
+    _background: {r: 0.82, g: 0.81, b: 0.78, a: 1}
+    _roads:
+      _surface:
+        serializedVersion: 2
+        rgba: 4294967295
+      _curb:
+        serializedVersion: 2
+        rgba: 4289508793
+      _divider:
+        serializedVersion: 2
+        rgba: 4282299106
+      _laneLine:
+        serializedVersion: 2
+        rgba: 4289837758
+      _curbWidth: 0.5
+      _dividerWidth: 0.35
+      _laneLineWidth: 0.25
+      _dashLength: 3
+      _dashGap: 5
+      _bridgeEdge:
+        serializedVersion: 2
+        rgba: 4287271574
+      _bridgeEdgeWidth: 1.1
+      _bridgeShadow:
+        serializedVersion: 2
+        rgba: 1176249384
+      _previewValid:
+        serializedVersion: 2
+        rgba: 1523078704
+      _previewInvalid:
+        serializedVersion: 2
+        rgba: 2521190630
+      _previewGuide:
+        serializedVersion: 2
+        rgba: 2522503770
+      _previewAnchor:
+        serializedVersion: 2
+        rgba: 3955775024
+      _previewFreeAnchor:
+        serializedVersion: 2
+        rgba: 3363338360
+    _houseWalls:
+      serializedVersion: 2
+      rgba: 4282159700
+    _houseRoof:
+      serializedVersion: 2
+      rgba: 4284007548
+    _shopWalls:
+      serializedVersion: 2
+      rgba: 4289223736
+    _shopRoof:
+      serializedVersion: 2
+      rgba: 4292775008
+    _officeWalls:
+      serializedVersion: 2
+      rgba: 4288431714
+    _officeRoof:
+      serializedVersion: 2
+      rgba: 4292245654
+    _shadow:
+      serializedVersion: 2
+      rgba: 756818984
+    _badge:
+      serializedVersion: 2
+      rgba: 4278229987
+    _badgeMark:
+      serializedVersion: 2
+      rgba: 4294967295
+    _congestion:
+      serializedVersion: 2
+      rgba: 4282271970
+    _stopLine:
+      serializedVersion: 2
+      rgba: 4284112479
+    _signalRed:
+      serializedVersion: 2
+      rgba: 4282140640
+    _signalYellow:
+      serializedVersion: 2
+      rgba: 4280924146
+    _signalGreen:
+      serializedVersion: 2
+      rgba: 4284130863
+  _darkMap:
+    _groundA:
+      serializedVersion: 2
+      rgba: 4279965718
+    _groundB:
+      serializedVersion: 2
+      rgba: 4280294426
+    _background: {r: 0.07, g: 0.08, b: 0.09, a: 1}
+    _roads:
+      _surface:
+        serializedVersion: 2
+        rgba: 4281675564
+      _curb:
+        serializedVersion: 2
+        rgba: 4283254081
+      _divider:
+        serializedVersion: 2
+        rgba: 4281109685
+      _laneLine:
+        serializedVersion: 2
+        rgba: 4285030234
+      _curbWidth: 0.5
+      _dividerWidth: 0.35
+      _laneLineWidth: 0.25
+      _dashLength: 3
+      _dashGap: 5
+      _bridgeEdge:
+        serializedVersion: 2
+        rgba: 4285818978
+      _bridgeEdgeWidth: 1.1
+      _bridgeShadow:
+        serializedVersion: 2
+        rgba: 3355443200
+      _previewValid:
+        serializedVersion: 2
+        rgba: 1862255797
+      _previewInvalid:
+        serializedVersion: 2
+        rgba: 2187620095
+      _previewGuide:
+        serializedVersion: 2
+        rgba: 1943061959
+      _previewAnchor:
+        serializedVersion: 2
+        rgba: 3959407797
+      _previewFreeAnchor:
+        serializedVersion: 2
+        rgba: 3365572497
+    _houseWalls:
+      serializedVersion: 2
+      rgba: 4285644413
+    _houseRoof:
+      serializedVersion: 2
+      rgba: 4282813518
+    _shopWalls:
+      serializedVersion: 2
+      rgba: 4293829240
+    _shopRoof:
+      serializedVersion: 2
+      rgba: 4290800703
+    _officeWalls:
+      serializedVersion: 2
+      rgba: 4293299364
+    _officeRoof:
+      serializedVersion: 2
+      rgba: 4290008942
+    _shadow:
+      serializedVersion: 2
+      rgba: 1845493760
+    _badge:
+      serializedVersion: 2
+      rgba: 4283091455
+    _badgeMark:
+      serializedVersion: 2
+      rgba: 4280228635
+    _congestion:
+      serializedVersion: 2
+      rgba: 2354208511
+    _stopLine:
+      serializedVersion: 2
+      rgba: 4289372314
+    _signalRed:
+      serializedVersion: 2
+      rgba: 4283588351
+    _signalYellow:
+      serializedVersion: 2
+      rgba: 4282434815
+    _signalGreen:
+      serializedVersion: 2
+      rgba: 4285452603
+  _campaignLevels:
+  - {fileID: 4900000, guid: dbf2ca791de9d46e0b31c4ebea31ee0e, type: 3}
+  - {fileID: 4900000, guid: 9e4d6746922744829bdf0006f83882b4, type: 3}
+  - {fileID: 4900000, guid: 4c7c2bce9eba74fcd85533bfe61fbff2, type: 3}
+  - {fileID: 4900000, guid: 1f99ab462f6e94caea63b5ea7840d958, type: 3}
+  - {fileID: 4900000, guid: 961ffd029ced3419bbcd2dfc03944e93, type: 3}
+  - {fileID: 4900000, guid: 00218c876eab04f3a9c3ca779232115d, type: 3}
+  _sandboxLevel: {fileID: 4900000, guid: f4683ebacffbc40bf95601893cab5edc, type: 3}
+  _minZoomHalfHeight: 15
+  _maxZoomHalfHeight: 600
+  _initialZoomHalfHeight: 150
+  _scrollZoomSensitivity: 0.008
+  _laneWidth: 3.5
+  _shoulderWidth: 0.5
+  _junctionPadding: 4
+  _minJunctionTrim: 0.5
+  _maxJunctionTrim: 60
+  _curveSampleSpacing: 2
+  _roadProfiles:
+  - _id: two_lane
+    _forwardLanes: 1
+    _backwardLanes: 1
+    _costPerMeter: 4
+    _speedLimitMph: 35
+  - _id: four_lane
+    _forwardLanes: 2
+    _backwardLanes: 2
+    _costPerMeter: 8
+    _speedLimitMph: 45
+  - _id: one_way_two_lane
+    _forwardLanes: 2
+    _backwardLanes: 0
+    _costPerMeter: 6
+    _speedLimitMph: 30
+  - _id: one_way_one_lane
+    _forwardLanes: 1
+    _backwardLanes: 0
+    _costPerMeter: 3
+    _speedLimitMph: 20
+  _startingBudget: 50000
+  _undoDepth: 100
+  _bulldozeRefundRatio: 0.75
+  _trafficLightCost: 400
+  _minRoadLength: 8
+  _minCurveRadius: 12
+  _minCrossingAngle: 30
+  _minConnectionAngle: 25
+  _minJunctionSpacing: 12
+  _snapMargin: 3
+  _guideSnapAngle: 4
+  _guideSearchRadius: 60
+  _roundaboutProfileId: one_way_one_lane
+  _roundaboutRadius: 22
+  _simulationTickRate: 20
+  _maxTicksPerFrame: 8
+  _simulationTimeScale: 2
+  _autoSpeedIdleSeconds: 4
+  _autoSpeed: 4
+  _truckShare: 0.1
+  _criticalGap: 4
+  _maxVehicles: 4000
+  _languageFiles:
+  - {fileID: 4900000, guid: baea626be881d4e849ac197a476f6013, type: 3}
+  - {fileID: 4900000, guid: 4b0fc07ad5b2b44e383bedbcb1aa2ffe, type: 3}
+  _fallbackLanguage: en

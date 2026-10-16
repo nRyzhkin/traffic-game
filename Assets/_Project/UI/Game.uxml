@@ -1,0 +1,155 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="Game.uss" />
+    <ui:VisualElement name="root" class="root" picking-mode="Ignore">
+        <ui:VisualElement name="safe-area" class="safe-area" picking-mode="Ignore">
+            <ui:VisualElement name="hud" class="hud is-hidden" picking-mode="Ignore" style="display: none;">
+                <ui:VisualElement class="hud-top" picking-mode="Ignore">
+                    <ui:VisualElement class="hud-top__left" picking-mode="Ignore">
+                        <ui:Button name="menu-button" class="icon-button icon-button--surface" />
+                        <ui:VisualElement name="balance-chip" class="balance" picking-mode="Ignore">
+                            <ui:Label name="balance" class="balance__label" picking-mode="Ignore" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+
+                    <ui:VisualElement name="objective" class="objective" picking-mode="Ignore">
+                        <ui:VisualElement name="objective-head" class="objective__row" picking-mode="Ignore">
+                            <ui:Label name="objective-label" class="objective__label" picking-mode="Ignore" />
+                            <ui:Label name="objective-count" class="objective__count" picking-mode="Ignore" />
+                        </ui:VisualElement>
+                        <ui:VisualElement class="progress" picking-mode="Ignore">
+                            <ui:VisualElement name="objective-fill" class="progress__fill" picking-mode="Ignore" />
+                            <ui:VisualElement name="objective-rest" class="progress__rest" picking-mode="Ignore" />
+                        </ui:VisualElement>
+                        <ui:VisualElement class="objective__row objective__row--detail" picking-mode="Ignore">
+                            <ui:Label name="objective-detail" class="objective__detail" picking-mode="Ignore" />
+                            <ui:VisualElement name="objective-stars" class="objective__stars" picking-mode="Ignore" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+
+                    <ui:VisualElement class="hud-top__right" picking-mode="Ignore">
+                        <ui:VisualElement name="speed-buttons" class="segmented" />
+                        <ui:VisualElement name="boost" class="boost" picking-mode="Ignore">
+                            <ui:Label name="boost-label" class="boost__label" picking-mode="Ignore" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+
+                <ui:VisualElement class="bottom" picking-mode="Ignore">
+                    <ui:Label name="hint" class="hint" picking-mode="Ignore" />
+                    <ui:VisualElement name="actions" class="actions" picking-mode="Ignore">
+                        <ui:VisualElement name="history-floating" class="history-floating">
+                            <ui:Button name="undo-floating" class="icon-button" />
+                            <ui:Button name="redo-floating" class="icon-button" />
+                        </ui:VisualElement>
+                        <ui:Button name="back" class="fab fab--tonal fab--square" />
+                        <ui:Button name="confirm" class="fab fab--primary">
+                            <ui:Label name="label" class="fab__label" picking-mode="Ignore" />
+                        </ui:Button>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="profile-bar" class="profile-bar">
+                        <ui:VisualElement name="elevation" class="stepper">
+                            <ui:Button name="elevation-down" class="stepper__button" />
+                            <ui:Label name="elevation-label" class="stepper__label" picking-mode="Ignore" />
+                            <ui:Button name="elevation-up" class="stepper__button" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="toolbar" class="toolbar">
+                        <ui:Button name="tool-road" class="tool" />
+                        <ui:Button name="tool-curve" class="tool" />
+                        <ui:Button name="tool-roundabout" class="tool" />
+                        <ui:Button name="tool-lights" class="tool" />
+                        <ui:Button name="tool-lanes" class="tool" />
+                        <ui:Button name="tool-bulldoze" class="tool" />
+                        <ui:VisualElement name="history" class="toolbar__history" picking-mode="Ignore">
+                            <ui:VisualElement class="toolbar__divider" picking-mode="Ignore" />
+                            <ui:Button name="undo" class="icon-button" />
+                            <ui:Button name="redo" class="icon-button" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="tooltip" class="tooltip" picking-mode="Ignore" />
+
+        <ui:VisualElement name="curtain" class="curtain" />
+
+        <ui:VisualElement name="menu" class="menu" picking-mode="Ignore">
+            <ui:VisualElement class="menu__sheet">
+                <ui:VisualElement class="menu__header">
+                    <ui:VisualElement name="menu-logo" class="menu__logo" />
+                    <ui:VisualElement class="menu__titles">
+                        <ui:Label name="menu-title" class="menu__title" />
+                        <ui:Label name="menu-subtitle" class="menu__subtitle" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:Button name="menu-continue" class="button button--filled button--large">
+                    <ui:Label name="label" class="button__label" picking-mode="Ignore" />
+                </ui:Button>
+                <ui:VisualElement class="menu__section">
+                    <ui:Label name="menu-campaign" class="menu__section-title" />
+                    <ui:VisualElement name="menu-stars" class="menu__stars">
+                        <ui:Label name="menu-stars-label" class="menu__stars-label" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:ScrollView name="menu-scroll" class="menu__scroll">
+                    <ui:VisualElement name="menu-levels" class="menu__levels" />
+                </ui:ScrollView>
+                <ui:Button name="menu-sandbox" class="sandbox">
+                    <ui:VisualElement class="sandbox__text" picking-mode="Ignore">
+                        <ui:Label name="sandbox-title" class="sandbox__title" picking-mode="Ignore" />
+                        <ui:Label name="sandbox-subtitle" class="sandbox__subtitle" picking-mode="Ignore" />
+                    </ui:VisualElement>
+                </ui:Button>
+                <ui:VisualElement class="menu__footer">
+                    <ui:VisualElement name="theme-control" class="segmented segmented--small" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:VisualElement name="modal" class="modal">
+            <ui:VisualElement name="intro-card" class="dialog">
+                <ui:VisualElement class="dialog__handle" />
+                <ui:VisualElement class="intro__header">
+                    <ui:VisualElement name="intro-icon" class="intro__icon" />
+                    <ui:VisualElement class="intro__titles">
+                        <ui:Label name="intro-caption" class="intro__caption" />
+                        <ui:Label name="intro-title" class="dialog__title" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:Label name="intro-text" class="dialog__text" />
+                <ui:VisualElement name="intro-goals" class="intro__goals" />
+                <ui:VisualElement name="intro-hint" class="tip">
+                    <ui:Label name="intro-hint-text" class="tip__text" />
+                </ui:VisualElement>
+                <ui:VisualElement class="intro__buttons">
+                    <ui:Button name="intro-back" class="button button--text button--large">
+                        <ui:Label name="label" class="button__label" picking-mode="Ignore" />
+                    </ui:Button>
+                    <ui:Button name="intro-start" class="button button--filled button--large">
+                        <ui:Label name="label" class="button__label" picking-mode="Ignore" />
+                    </ui:Button>
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:VisualElement name="result-card" class="dialog">
+                <ui:VisualElement class="dialog__handle" />
+                <ui:VisualElement name="result-stars" class="result__stars" />
+                <ui:Label name="result-title" class="dialog__title result__title" />
+                <ui:Label name="result-subtitle" class="result__subtitle" />
+                <ui:VisualElement name="result-lines" class="result__lines" />
+                <ui:VisualElement name="result-statistics" class="result__statistics" />
+                <ui:VisualElement class="result__buttons">
+                    <ui:Button name="result-levels" class="button button--text" />
+                    <ui:VisualElement class="result__spacer" />
+                    <ui:Button name="result-retry" class="button button--tonal">
+                        <ui:Label name="label" class="button__label" picking-mode="Ignore" />
+                    </ui:Button>
+                    <ui:Button name="result-next" class="button button--filled">
+                        <ui:Label name="label" class="button__label" picking-mode="Ignore" />
+                    </ui:Button>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,15 @@
+{
+    "name": "TrafficGame.Editor",
+    "rootNamespace": "TrafficGame.Editor",
+    "references": [
+        "TrafficGame.App",
+        "TrafficGame.Views",
+        "TrafficGame.Presentation",
+        "TrafficGame.Core",
+        "Unity.RenderPipelines.Universal.Runtime"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "autoReferenced": false
+}

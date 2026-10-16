@@ -1,0 +1,222 @@
+{
+  "schemaVersion": 1,
+  "name": "Flyover",
+  "titleKey": "level.flyover.title",
+  "introKey": "level.flyover.intro",
+  "hintKey": "level.flyover.hint",
+  "budget": 4500,
+  "warmup": 50,
+  "camera": {
+    "x": 0,
+    "y": 0,
+    "halfHeight": 200
+  },
+  "objective": {
+    "trips": 40,
+    "stars": [
+      {
+        "maxAverageTrip": 90.0
+      },
+      {
+        "maxAverageTrip": 45.0
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "x": 0,
+      "y": 0,
+      "lights": true
+    },
+    {
+      "id": 2,
+      "x": -420,
+      "y": 0
+    },
+    {
+      "id": 3,
+      "x": 420,
+      "y": 0
+    },
+    {
+      "id": 4,
+      "x": 0,
+      "y": -420
+    },
+    {
+      "id": 5,
+      "x": 0,
+      "y": 420
+    },
+    {
+      "id": 6,
+      "x": -88.4,
+      "y": 109.6
+    },
+    {
+      "id": 7,
+      "x": -99.00660171779822,
+      "y": 98.99339828220178
+    },
+    {
+      "id": 8,
+      "x": -134.4,
+      "y": 113.1
+    },
+    {
+      "id": 9,
+      "x": -123.79339828220179,
+      "y": 123.70660171779821
+    },
+    {
+      "id": 10,
+      "x": -137.9,
+      "y": 159.1
+    },
+    {
+      "id": 11,
+      "x": -148.50660171779822,
+      "y": 148.49339828220178
+    },
+    {
+      "id": 12,
+      "x": 88.4,
+      "y": -109.6
+    },
+    {
+      "id": 13,
+      "x": 99.00660171779822,
+      "y": -98.99339828220178
+    },
+    {
+      "id": 14,
+      "x": 141.4,
+      "y": -120.2
+    },
+    {
+      "id": 15,
+      "x": 130.7933982822018,
+      "y": -130.8066017177982
+    }
+  ],
+  "segments": [
+    {
+      "start": 1,
+      "end": 2,
+      "profile": "four_lane",
+      "locked": true
+    },
+    {
+      "start": 1,
+      "end": 3,
+      "profile": "four_lane",
+      "locked": true
+    },
+    {
+      "start": 1,
+      "end": 4,
+      "profile": "four_lane",
+      "locked": true
+    },
+    {
+      "start": 1,
+      "end": 5,
+      "profile": "four_lane",
+      "locked": true
+    },
+    {
+      "start": 6,
+      "end": 7,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 8,
+      "end": 9,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 10,
+      "end": 11,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 12,
+      "end": 13,
+      "profile": "two_lane",
+      "locked": true
+    },
+    {
+      "start": 14,
+      "end": 15,
+      "profile": "two_lane",
+      "locked": true
+    }
+  ],
+  "buildings": [
+    {
+      "id": 1,
+      "type": "house",
+      "x": -84.15735931288071,
+      "y": 113.84264068711929,
+      "door": 6,
+      "perMinute": 3.0,
+      "rotation": 45
+    },
+    {
+      "id": 2,
+      "type": "house",
+      "x": -138.6426406871193,
+      "y": 108.8573593128807,
+      "door": 8,
+      "perMinute": 3.0,
+      "rotation": 45
+    },
+    {
+      "id": 3,
+      "type": "house",
+      "x": -133.65735931288071,
+      "y": 163.34264068711929,
+      "door": 10,
+      "perMinute": 3.0,
+      "rotation": 45
+    },
+    {
+      "id": 4,
+      "type": "office",
+      "x": 79.91471862576144,
+      "y": -118.08528137423856,
+      "door": 12,
+      "rotation": 45
+    },
+    {
+      "id": 5,
+      "type": "office",
+      "x": 149.8852813742386,
+      "y": -111.71471862576144,
+      "door": 14,
+      "rotation": 45
+    }
+  ],
+  "edges": [
+    {
+      "node": 2,
+      "perMinute": 8.0
+    },
+    {
+      "node": 3,
+      "perMinute": 8.0
+    },
+    {
+      "node": 4,
+      "perMinute": 8.0
+    },
+    {
+      "node": 5,
+      "perMinute": 8.0
+    }
+  ]
+}

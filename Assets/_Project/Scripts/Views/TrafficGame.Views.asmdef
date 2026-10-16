@@ -1,0 +1,10 @@
+{
+    "name": "TrafficGame.Views",
+    "rootNamespace": "TrafficGame.Views",
+    "references": [
+        "TrafficGame.Core",
+        "TrafficGame.Presentation",
+        "Unity.InputSystem"
+    ],
+    "autoReferenced": false
+}
